@@ -5,6 +5,12 @@
 *.ear
 hs_err_pid*
 
+## Projeto
+*.rar
+/FlappyBirdAnimandoPassaro/
+/Imagens_novas/
+
+
 ## Robovm
 /ios/robovm-build/
 
