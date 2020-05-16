@@ -6,9 +6,10 @@
 hs_err_pid*
 
 ## Projeto
+##remover pastas do repositorio git rm --cached -r Imagens_novas/Imagens
 *.rar
-/FlappyBirdAnimandoPassaro/
-/Imagens_novas/Imagens
+FlappyBirdAnimandoPassaro/
+Imagens_novas/
 
 
 ## Robovm
