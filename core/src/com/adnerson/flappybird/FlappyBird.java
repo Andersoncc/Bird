@@ -32,7 +32,7 @@ public class FlappyBird extends ApplicationAdapter {
 		batch = new SpriteBatch();
 		fundo = new Texture("fundo.png");
 		canoAlto = new Texture("cano_topo.png");
-		canoBaixo = new Texture("cano_baixo");
+		canoBaixo = new Texture("cano_baixo.png");
 		passaros = new Texture[3];
 		passaros[0] = new Texture ("passaro1.png");
 		passaros[1] = new Texture ("passaro2.png");
@@ -58,7 +58,7 @@ public class FlappyBird extends ApplicationAdapter {
 		batch.begin();
 		batch.draw(fundo,0,0,larguraDispositivo,alturaDispositivo);
 		batch.draw(canoAlto,posicaoMovimentoCanoHorizontal,alturaDispositivo / 2);
-		/**batch.draw(canoBaixo,posicaoMovimentoCanoHorizontal,alturaDispositivo / 2 );**/
+		batch.draw(canoBaixo,posicaoMovimentoCanoHorizontal,alturaDispositivo / 2 -Gdx.graphics.getWidth() );
 		batch.draw(passaros[(int)variacao],30, posicaoInicalVertical);
 		batch.end();
 
