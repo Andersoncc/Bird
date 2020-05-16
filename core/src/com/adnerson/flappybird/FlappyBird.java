@@ -20,6 +20,8 @@ public class FlappyBird extends ApplicationAdapter {
 	private float velocidadeQueda=0;
 	private float posicaoInicalVertical;
 	private float posicaoMovimentoCanoHorizontal;
+	private float espacoEntreCanos;
+	private float deltaTime;
 
 
 
@@ -41,25 +43,42 @@ public class FlappyBird extends ApplicationAdapter {
 		alturaDispositivo =  Gdx.graphics.getHeight();
 		posicaoInicalVertical = alturaDispositivo/2;
 		posicaoMovimentoCanoHorizontal = larguraDispositivo -100;
+		espacoEntreCanos = 300;
+
 
 
 	}
 
 	@Override
 	public void render () {
-		variacao+=Gdx.graphics.getDeltaTime()*10;
+		deltaTime = Gdx.graphics.getDeltaTime();
+		variacao+=deltaTime * 10;
+		posicaoMovimentoCanoHorizontal-=deltaTime * 200;
 		velocidadeQueda++;
 		/**Gdx.app.log("varicao","varicao" +Gdx.graphics.getDeltaTime());**/
-		if(variacao>2) variacao =0;
-		if(posicaoInicalVertical >0 || velocidadeQueda < 0) posicaoInicalVertical-=velocidadeQueda;
+
+		if(variacao>2){
+			variacao =0;
+		}
+
+		if(posicaoInicalVertical >0 || velocidadeQueda < 0){
+			posicaoInicalVertical-=velocidadeQueda;
+		}
+
+		if(posicaoMovimentoCanoHorizontal < 0) {
+			posicaoMovimentoCanoHorizontal = larguraDispositivo - 100;
+		};
+
 		if(Gdx.input.justTouched()){
 			velocidadeQueda=-15;
 		};
 		batch.begin();
+
 		batch.draw(fundo,0,0,larguraDispositivo,alturaDispositivo);
-		batch.draw(canoAlto,posicaoMovimentoCanoHorizontal,alturaDispositivo / 2);
-		batch.draw(canoBaixo,posicaoMovimentoCanoHorizontal,alturaDispositivo / 2 -Gdx.graphics.getWidth() );
+		batch.draw(canoAlto,posicaoMovimentoCanoHorizontal,alturaDispositivo / 2 + espacoEntreCanos / 2);
+		batch.draw(canoBaixo,posicaoMovimentoCanoHorizontal,alturaDispositivo / 2 - canoBaixo.getHeight() -espacoEntreCanos / 2 );
 		batch.draw(passaros[(int)variacao],30, posicaoInicalVertical);
+
 		batch.end();
 
 
