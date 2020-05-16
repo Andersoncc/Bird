@@ -14,7 +14,9 @@ public class FlappyBird extends ApplicationAdapter {
 	//*Configuração*//
 	private int larguraDispositivo;
 	private int alturaDispositivo;
-	private int variacao=0;
+	private float variacao=0;
+	private float velocidadeQueda=0;
+	private float posicaoInicalVertical;
 
 
 
@@ -32,16 +34,20 @@ public class FlappyBird extends ApplicationAdapter {
 
 		larguraDispositivo =  Gdx.graphics.getWidth();
 		alturaDispositivo =  Gdx.graphics.getHeight();
+		posicaoInicalVertical = alturaDispositivo/2;
 
 	}
 
 	@Override
 	public void render () {
-		variacao++;
+		variacao+=Gdx.graphics.getDeltaTime()*10;
+		velocidadeQueda++;
+		/**Gdx.app.log("varicao","varicao" +Gdx.graphics.getDeltaTime());**/
 		if(variacao>2) variacao =0;
+		if(posicaoInicalVertical >0) posicaoInicalVertical-=velocidadeQueda;
 		batch.begin();
 		batch.draw(fundo,0,0,larguraDispositivo,alturaDispositivo);
-		batch.draw(passaros[variacao],30,alturaDispositivo/2);
+		batch.draw(passaros[(int)variacao],30, posicaoInicalVertical);
 		batch.end();
 
 
