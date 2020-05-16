@@ -58,7 +58,7 @@ public class FlappyBird extends ApplicationAdapter {
 		batch.begin();
 		batch.draw(fundo,0,0,larguraDispositivo,alturaDispositivo);
 		batch.draw(canoAlto,posicaoMovimentoCanoHorizontal,alturaDispositivo / 2);
-		batch.draw(canoBaixo,posicaoMovimentoCanoHorizontal,alturaDispositivo / 2 );
+		/**batch.draw(canoBaixo,posicaoMovimentoCanoHorizontal,alturaDispositivo / 2 );**/
 		batch.draw(passaros[(int)variacao],30, posicaoInicalVertical);
 		batch.end();
 
