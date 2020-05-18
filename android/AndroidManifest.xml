@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.adnerson.flappybird" >
+    package="com.anderson.flappybird" >
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/ic_flappybird"
         android:isGame="true"
         android:appCategory="game"
         android:label="@string/app_name"
